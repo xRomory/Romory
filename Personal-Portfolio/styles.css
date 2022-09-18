@@ -1,0 +1,295 @@
+/* Custom Variables */
+
+:root {
+  --white: #f0f0f0;
+  --lilac: #aebaf8;
+  --purple: #A0A7F1;
+  --maroon: #b60f46;
+  --off-white: #f1f6e8;
+  --light-blue: #a0d0f1;
+  --yellow: #F1EAA0;
+  --main-gray: #303841;
+}
+
+/* Analogous Colors: 
+
+Cyan: #a0f1ea
+Light Blue: #A0D0F1
+Mint Green: #A0F1C2
+
+*/
+
+
+/* Reset Default Margin and Padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Global values */
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Base CSS styles */
+
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+h1,
+h2 {
+  font-weight: 800;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Dancing Script', sans-serif;
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+ul{
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+iframe {
+  width: 100%;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* NAV */
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+  background: #383c83;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+
+.nav-list {
+  display: flex;
+  margin-right: 2rem;
+}
+
+.nav-list a {
+  display: block;
+  font-size: 2.2rem;
+  padding: 2rem;
+}
+
+.nav-list a:hover {
+  background: var(--maroon);
+}
+
+/* WELCOME */
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  background-image: linear-gradient(
+  150deg,
+  #ead6ee 0%,
+  #a0f1ea 100%
+  );
+}
+
+.welcome p{
+  font-size: 2.2rem;
+  font-style: italic;
+  font-weight: 200;
+  color: #6d8092;
+}
+
+/* PROJECTS */
+
+.my-works {
+  text-align: center;
+  padding: 10rem 2rem;
+  background: linear-gradient(
+  150deg,
+  #A0D0F1,
+  #F1C1A0 100%
+  );
+}
+
+.art-header {
+  max-width: 700px;
+  margin: 0 auto 6rem auto;
+  border-bottom: 0.2rem solid var(--main-white);
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+}
+
+.border {
+  background: #F1C1A0;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+
+.art-image {
+  height: calc(100% - 50rem);
+  object-fit: cover;
+}
+
+.video {
+  width: 100%;
+}
+
+.art-title {
+  font-size: 2rem;
+  padding: 2rem 0.5rem;
+  order: 2;
+}
+
+
+/* Contacts */
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+}
+
+.my-contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  padding: 0 2rem;
+  background: linear-gradient(
+  150deg,
+  var(--yellow) 0%,
+  #A0A7F1 100%
+  );
+}
+
+.quote {
+  font-size: 3rem;
+  text-align: center; 
+  font-family: 'Arima', sans-serif;
+}
+
+.quote::before {
+  content: '" ';
+}
+
+.quote::after {
+  content: ' "';
+}
+
+.contact-link {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 980px;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
+.contact-details {
+  font-size: 2.4rem;
+  text-shadow: 0px 1px 1px #1f1f1f;
+  transition: transform 0.3s ease-out;
+}
+
+.contact-details:hover {
+  transform: translateY(8px);
+}
+
+/* FOOTER */
+
+footer {
+  font-weight: 300;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  background: var(--purple);
+  border-top: 4px solid var(--lilac);
+}
+
+footer > p {
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+@media (max-width: 28.75em) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
