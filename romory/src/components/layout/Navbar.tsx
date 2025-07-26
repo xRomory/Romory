@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full shadow-foreground shadow-lg/5 border-b">
-      <div className="container mx-auto flex h-14 items-center">
+      <div className="container mx-auto flex h-14 items-center px-4">
         <div className="flex flex-1 items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
             <div className="flex justify-start">
@@ -32,7 +32,7 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="hidden md:flex items-center space-x-2">
             <div className="">
               <span className="text-sm text-muted-foreground hover:text-foreground">
                 {"('contact me')"}

@@ -4,11 +4,10 @@ export interface NavItem {
   external?: boolean;
 }
 
-export type LetterGlitchProps = {
-  className?: string;
-  glitchColors: string[];
-  glitchSpeed: number;
-  centerVignette: boolean;
-  outerVignette: boolean;
-  smooth: boolean;
+export type ContactItem = {
+  label: string;
+  name: string;
+  value: string;
+  href?: string;
+  color?: string;
 }

@@ -3,16 +3,20 @@
 */
 
 import { useRef, useEffect } from "react";
-import type { LetterGlitchProps } from "@/types";
 
 const LetterGlitch = ({
-  className = "",
   glitchColors = ["#2b4539", "#61dca3", "#61b3dc"],
   glitchSpeed = 50,
   centerVignette = false,
   outerVignette = true,
   smooth = true,
-}: LetterGlitchProps) => {
+}: { 
+  glitchColors: string[];
+  glitchSpeed: number;
+  centerVignette: boolean;
+  outerVignette: boolean;
+  smooth: boolean;
+}) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationRef = useRef<number | null>(null);
   const letters = useRef<
@@ -278,7 +282,9 @@ const LetterGlitch = ({
   }, [glitchSpeed, smooth]);
 
   return (
-    <div className={`absolute inset-0 -z-10 w-full min-h-screen blur-xs overflow-hidden ${className}`}>
+    <div className="absolute inset-0 -z-10 w-full min-h-screen overflow-hidden bg-black"
+      style={{ filter: 'blur(3px)' }}
+    >
       <canvas ref={canvasRef} className="w-full h-full" />
       {outerVignette && (
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none bg-[radial-gradient(circle,_rgba(0,0,0,0)_60%,_rgba(0,0,0,1)_100%)]"></div>
