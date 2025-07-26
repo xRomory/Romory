@@ -1,7 +1,13 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import type { NavItem } from "@/types";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "../ui/button";
+import { Menu } from "lucide-react";
 
-export default function Navbar() {
+export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   const NAV_ITEMS: NavItem[] = [
     { label: "('hello, lawrence')", href: "/" },
     { label: "('projects')", href: "/" },
@@ -33,14 +39,43 @@ export default function Navbar() {
           </nav>
 
           <Link to="/" className="hidden md:flex items-center space-x-2">
-            <div className="">
-              <span className="text-sm text-muted-foreground hover:text-foreground">
-                {"('contact me')"}
-              </span>
-            </div>
+            <span className="text-sm text-muted-foreground hover:text-foreground">
+              {"('contact me')"}
+            </span>
           </Link>
+        </div>
+
+        <div className="md:hidden flex space-x-2">
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Toggle Menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <nav className="flex flex-col space-y-4 mt-8 px-6 py-4">
+                {NAV_ITEMS.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="text-sm text-muted-foreground hover:text-foreground"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+
+                <Link to="/" className="flex items-center space-x-2">
+                  <span className="text-sm text-muted-foreground hover:text-foreground">
+                    {"('contact me')"}
+                  </span>
+                </Link>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
   );
-}
+};
