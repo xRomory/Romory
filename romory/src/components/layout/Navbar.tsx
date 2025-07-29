@@ -16,11 +16,11 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-40 w-full shadow-foreground shadow-lg/5 border-b">
-      <div className="container mx-auto flex h-14 items-center px-4">
+      <div className="container mx-auto flex h-14 items-center px-6 md:px-4">
         <div className="flex flex-1 items-center justify-between">
           <Link to="/" className="flex items-center space-x-2">
             <div className="flex justify-start">
-              <span className="text-lg md:text-xl font-medium font-google-sans-code">
+              <span className="text-lg md:text-xl font-semibold font-google-sans-code">
                 Romory
               </span>
             </div>
@@ -31,7 +31,7 @@ export const Navbar = () => {
               <Link
                 key={item.href}
                 to={item.href}
-                className="text-sm text-muted-foreground hover:text-foreground"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground"
               >
                 {item.label}
               </Link>
@@ -39,7 +39,7 @@ export const Navbar = () => {
           </nav>
 
           <Link to="/" className="hidden md:flex items-center space-x-2">
-            <span className="text-sm text-muted-foreground hover:text-foreground">
+            <span className="text-sm font-medium text-muted-foreground hover:text-foreground">
               {"('contact me')"}
             </span>
           </Link>
@@ -59,7 +59,7 @@ export const Navbar = () => {
                   <Link
                     key={item.href}
                     to={item.href}
-                    className="text-sm text-muted-foreground hover:text-foreground"
+                    className="font-medium text-muted-foreground hover:text-foreground"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}
@@ -67,7 +67,7 @@ export const Navbar = () => {
                 ))}
 
                 <Link to="/" className="flex items-center space-x-2">
-                  <span className="text-sm text-muted-foreground hover:text-foreground">
+                  <span className="font-medium text-muted-foreground hover:text-foreground">
                     {"('contact me')"}
                   </span>
                 </Link>
