@@ -1,55 +1,54 @@
 import type { ContactItem } from "@/types";
 import { AuroraText } from "@/components/magicui/aurora-text";
-import LetterGlitch from "@/blocks/Backgrounds/LetterGlitch/LetterGlitch";
+import Aurora from "@/blocks/Backgrounds/Aurora/Aurora";
+
+const contactItem: ContactItem[] = [
+  {
+    label: "// my phone number",
+    name: "contactNumber",
+    value: "+639192159185",
+    color: "text-purple-400",
+  },
+  {
+    label: "// my email address",
+    name: "email",
+    value: "clyncemiro@gmail.com",
+    color: "text-blue-400",
+  },
+  {
+    label: "// you can see my GitHub's profile",
+    name: "gitHubLink",
+    value: "https://github.com/xRomory",
+    href: "https://github.com/xRomory",
+  },
+  {
+    label: "// visit my LinkedIn's profile",
+    name: "linkedinLink",
+    value: "https://www.linkedin.com/in/chris-lawrence-de-vera/",
+    href: "https://www.linkedin.com/in/chris-lawrence-de-vera/",
+  },
+];
 
 export default function HeroSection() {
-  const contactItem: ContactItem[] = [
-    {
-      label: "// my phone number",
-      name: "contactNumber",
-      value: "+639 192 159 185",
-      color: "text-purple-400",
-    },
-    {
-      label: "// my email address",
-      name: "email",
-      value: "clyncemiro@gmail.com",
-      color: "text-blue-400",
-    },
-    {
-      label: "// you can see my GitHub's profile",
-      name: "gitHubLink",
-      value: "https://github.com/xRomory",
-      href: "https://github.com/xRomory",
-    },
-    {
-      label: "// visit my LinkedIn's profile",
-      name: "linkedinLink",
-      value: "https://www.linkedin.com/in/chris-lawrence-de-vera/",
-      href: "https://www.linkedin.com/in/chris-lawrence-de-vera/",
-    },
-  ];
-
   return (
     <section className="py-16 md:py-24">
-      <LetterGlitch
-        glitchColors={["#2b4539", "#61dca3", "#61b3dc"]}
-        glitchSpeed={10}
-        centerVignette={true}
-        outerVignette={true}
-        smooth={true}
+      <Aurora 
+        speed={0.5} 
+        amplitude={0.6}
       />
       <div className="container mx-auto">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <h1 className="text-4xl font-bold sm:text-5xl xl:text-6xl/none">
-                <span className="font-light text-3xl block my-4">Hi, I'm</span>
+                <span className="font-light text-xl md:text-3xl block my-4">
+                  Hi, I'm
+                </span>
                 <span className="font-semibold block my-4">
                   Lawrence De Vera
                 </span>
                 <AuroraText className="md:font-normal md:text-3xl text-xl block max-w-[600px]">
-                  {">"} aspiring full-stack developer
+                  {">"} junior full-stack developer
                 </AuroraText>
               </h1>
 
@@ -64,12 +63,16 @@ export default function HeroSection() {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-base"
+                        className="text-base transition-transform duration-300 hover:translate-x-4"
                       >
+                        {" "}
                         = {`"${item.value}"`};
                       </a>
                     ) : (
-                      <span> = {`"${item.value}"`};</span>
+                      <span className="text-base transition-transform duration-300 hover:translate-x-4">
+                        {" "}
+                        = {`"${item.value}"`};
+                      </span>
                     )}
                   </div>
                 ))}

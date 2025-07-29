@@ -5,7 +5,7 @@ export default function MainLayout() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-        <main className="flex-1 px-4">
+        <main className="flex-1 px-6 md:px-4">
           <Outlet />
         </main>
     </div>
